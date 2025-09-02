@@ -48,7 +48,7 @@ get_header();
         
                             <h2 class="font-titulo fs-xl-1-md fs-2 text-secondary">Reception to follow</h2>
                             <p class="fs-xl-2 mb-xl-4 mb-3">Casa 1537</p>
-                            <a href="#" class="btn btn-primary mx-auto mb-4 text-uppercase" target="_blank">LOCATION</a>
+                            <a href="https://maps.app.goo.gl/y3E6muyPuueWFc8z9" class="btn btn-primary mx-auto mb-4 text-uppercase" target="_blank">LOCATION</a>
         
                             <div class="row">
                                 <div class="col-12 col-xl-6 position-relative mb-xl-0 mb-4">
@@ -75,8 +75,8 @@ get_header();
      <!-- Save the Date -->
      <section class="customSectionCountdown position-relative">
         <div class="customSectionBox customSectionBoxGreen">
-            <img class="customSectionCountdown__flower position-absolute top-0 start-0 z-1 pointer-events-none" src="<?php echo THEME_IMG; ?>rsvp-flower-1.png" alt="">
-            <img class="customSectionCountdown__flower position-absolute top-0 end-0 z-1 pointer-events-none" src="<?php echo THEME_IMG; ?>rsvp-flower-4.png" alt="">
+            <img class="customSectionCountdown__flower customSectionCountdown__flower-1 position-absolute z-1 pointer-events-none" src="<?php echo THEME_IMG; ?>rsvp-flower-1.webp" alt="">
+            <img class="customSectionCountdown__flower customSectionCountdown__flower-2 position-absolute z-1 pointer-events-none" src="<?php echo THEME_IMG; ?>rsvp-flower-4.webp" alt="">
             
             <div class="py-5"></div>
             <div class="py-xl-5"></div>
@@ -93,8 +93,8 @@ get_header();
             <div class="py-4"></div>
             <div class="py-xl-5 py-3"></div>
             <div class="py-xl-5"></div>
-            <img class="customSectionCountdown__flower position-absolute bottom-0 start-0 z-1" src="<?php echo THEME_IMG; ?>rsvp-flower-2.png" alt="">
-            <img class="customSectionCountdown__flower position-absolute bottom-0 end-0 z-1" src="<?php echo THEME_IMG; ?>rsvp-flower-3.png" alt="">
+            <img class="customSectionCountdown__flower customSectionCountdown__flower-3 position-absolute z-1" src="<?php echo THEME_IMG; ?>rsvp-flower-2.webp" alt="">
+            <img class="customSectionCountdown__flower customSectionCountdown__flower-4 position-absolute z-1" src="<?php echo THEME_IMG; ?>rsvp-flower-3.webp" alt="">
         </div>
      </section>
 
@@ -120,7 +120,7 @@ get_header();
                             <p class="fs-xl-2 ls-xl-36 mb-1" >Baluarte de San Francisco Javier</p>
                             <p class="fs-xl-2 ls-xl-36 mb-4" >4:30 p.m. a 12:00 a.m.</p>
 
-                            <a href="#" class="btn btn-primary mx-auto mb-xl-5 mb-4 text-uppercase" target="_blank">LOCATION</a>
+                            <a href="https://maps.app.goo.gl/tgjACRTYV2XVmVwC9" class="btn btn-primary mx-auto mb-xl-5 mb-4 text-uppercase" target="_blank">LOCATION</a>
         
                             <p class="fs-xl-2 mb-2">DRESS CODE:</p>
                             <p class="fs-xl-2 mb-4">Tropical chic cocktail</p>
@@ -158,7 +158,17 @@ get_header();
                                 <h2 class="fs-xl-2 mb-xl-2 mb-3 ls-0">WE CAN´T WAIT TO <br class="d-xl-none"> CELEBRATE WITH YOU.</h2>
                                 <h3 class="font-titulo fs-xl-1-sm fs-4 text-secondary ls-0">Please respond by October 10, 2025</h3>
                             </div>
-                            <?php echo do_shortcode('[contact-form-7 id="3214a4c" title="Contact form 1"]'); ?>
+
+                            <?php
+                                global $TRP_LANGUAGE;
+                                var_dump($TRP_LANGUAGE);
+                                if ($TRP_LANGUAGE === 'en_US') {
+                                echo do_shortcode('[contact-form-7 id="5d0a69c" title="R.S.V.P | EN"]');
+                                } else {
+                                echo do_shortcode('[contact-form-7 id="3214a4c" title="R.S.V.P | ES"]');
+                                }
+                            ?>
+
                             <div class="text-center">
                                 <p class="fs-xl-6 ls-2 text-secondary">For questions or more information, email us at </p>
                                 <p class="fs-xl-6 ls-2 text-secondary">rsvp@moniyericwedding.com</p>

@@ -72,14 +72,14 @@ if (isset($_POST['password_access'])) {
   <div class="modal fade" id="modalPassword" tabindex="-1" aria-labelledby="modalPasswordLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="false" style="z-index: 9999;">
     <div class="py-4"></div>
       <div class="modal-dialog modal-dialog-centered">
-          <div class="customSectionBox modal-content px-xl-5 p-3 rounded-3">
+          <div class="customSectionBox modal-content px-xl-5 pt-5 pb-4 rounded-3">
               <div class="modal-header border-0 p-0">
                   <h2 class="font-titulo fs-xl-1-md fs-2 text-secondary w-100 text-center" id="modalPasswordLabel">Welcome / Bienvenido</h2>
               </div>
               <div class="modal-body p-0 pb-3">
                   <form method="POST" id="formPassword">
                       <div class="mb-3 text-center">
-                          <label for="password_access" class="d-block fs-xl-2 text-center text-secondary" style="line-height: 1.2">
+                          <label for="password_access" class="d-block fs-xl-2 text-center text-secondary px-xl-5" style="line-height: 1.2">
                             Please enter the password below.
                             <span class="line line--medium my-3"></span>
                           </label>
@@ -265,3 +265,8 @@ if (isset($_POST['password_access'])) {
       isEnglish: <?php echo ($current_language === 'en_US') ? 'true' : 'false'; ?>
     };
   </script>
+
+  <!-- monicaandericwedding.com
+https://mail.hostinger.com/
+User: rsvp@monicaandericwedding.com
+Pass: eoq}80xrhsT3 -->

@@ -172,6 +172,8 @@ table {
     --bs-border-width: 1px;
     --bs-border-style: solid;
     --bs-border-color: var(--bs-primary);
+    --bs-body-bg: #AAAF8ACC;
+
 }
 
 .font-santana {
@@ -234,11 +236,12 @@ strong {
 
 /* Bootstrap Modal Variables Override */
 .modal {
+    background-color: var(--bs-body-bg);
     --bs-modal-width: 750px;
 }
 
 header {
-    z-index: 9999;
+    z-index: 9998;
     transition: all 0.4s ease;
     background-color: rgba(255, 255, 255, 0.70);
 
@@ -299,6 +302,46 @@ header {
 
                 @media only screen and (min-width: 1360px) {
                     width: auto;
+                }
+
+                &-1 {
+                    left: -10px;
+                    top: 15px;
+
+                    @media only screen and (min-width: 1200px) {
+                        left: 20px;
+                        top: 40px;
+                    }
+                }
+
+                &-2 {
+                    right: 0;
+                    top: 15px;
+
+                    @media only screen and (min-width: 1200px) {
+                        right: 20px;
+                        top: 40px;
+                    }
+                }
+
+                &-3 {
+                    left: -15px;
+                    bottom: -10px;
+
+                    @media only screen and (min-width: 1200px) {
+                        left: 20px;
+                        bottom: 40px;
+                    }
+                }
+
+                &-4 {
+                    right: 0;
+                    bottom: -10px;
+
+                    @media only screen and (min-width: 1200px) {
+                        right: 20px;
+                        bottom: 40px;
+                    }
                 }
             }
         }

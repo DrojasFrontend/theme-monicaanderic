@@ -580,14 +580,6 @@ $places = [
             "image" => THEME_IMG . 'places-cartagena/boutiques-6.webp',
         ],
         [
-            "name" => "Goretty Medina",
-            "address" => "Calle La Mantilla # 3 - 44",
-            "city" => "Centro Histórico, Cartagena",
-            "phone" => "+57 317 4368144",
-            "link" => "https://co.gorettymedinac.com",
-            "image" => THEME_IMG . 'places-cartagena/boutiques-7.webp',
-        ],
-        [
             "name" => "Ketty Tinoco",
             "address" => "Calle Balocco # 33 - 01",
             "city" => "Centro Histórico, Cartagena",
@@ -696,14 +688,18 @@ $places = [
 ]
 ?>
 
-<main class="customMainCartagena">
-    <div class="position-absolute top-0 start-0 w-100">
+<main class="customMainCartagena position-relative">
+    <div class="position-absolute top-0 start-0 w-100 z-1">
         <!-- <img class="w-100" src="<?php echo THEME_IMG; ?>bg-cartagena-3.webp" alt="Background Cartagena"> -->
-        <img class="w-100 h-100 object-fit-cover position-fixed top-0 start-0" src="<?php echo THEME_IMG; ?>bg-cartagena.webp" alt="Background Cartagena">
+        <img class="w-100 h-100 object-fit-cover position-absoluto top-0 start-0" src="<?php echo THEME_IMG; ?>bg-cartagena.webp" alt="Background Cartagena">
     </div>
-    <div class="py-5"></div>
-    <div class="py-5"></div>
-    <section class="customSectionCartagenaPlaces" id="travel-info">
+    <div class="customSectionBox customSectionBoxWhite position-absolute top-0 start-0 w-100 h-100"></div>
+    <div class="py-xl-5 pt-5 pb-5"></div>
+    <div class="py-xl-5 pt-5"></div>
+    <div class="py-xl-5"></div>
+    <div class="py-xl-5"></div>
+    <div class="py-xl-5"></div>
+    <section class="customSectionCartagenaPlaces position-relative z-1" id="travel-info">
         <div class="">
             <div class="container">
                 <div class="row">
@@ -730,7 +726,7 @@ $places = [
                                     <p class="fs-xl-3 text-secondary mb-4">Several major airlines such as Latam, Delta, American Airlines, United, Aeroméxico, Copa Airlines, and Avianca offer direct flights to Rafael Núñez International Airport in Cartagena, on Colombia’s Caribbean coast. The best way to get from the airport to the walled city is by taxi or Uber. The ride takes approximately 10 to 15 minutes.</p>
                                     <p class="fs-xl-3 text-secondary mb-4">Authorized taxis are available 24 hours a day and operate with fixed fares, paid in cash: around 14,000 COP to Getsemaní, up to 18,000 COP to the hotel area in the historic center (Walled City), and approximately 30,000 COP to Bocagrande. In general, 1 USD equals about 4,100 COP. Since taxis do not always accept card payments, Uber is often a more convenient alternative.</p>
                                     <h2 class="fs-xl-2 text-secondary letter-spacing-24 uppercase">WEATHER</h2>
-                                    <p class="fs-xl-3 text-secondary">March in Cartagena offers warm and sunny days, with temperatures around 31 °C (88 °F) and pleasant evenings of about 26 °C (79 °F). Rainfall is minimal during this season, and the sea remains a delightful 27–28 °C (81–82 °F), perfect for enjoying both the city and the beach.</p>
+                                    <p class="fs-xl-3 text-secondary mb-4">March in Cartagena offers warm and sunny days, with temperatures around 31 °C (88 °F) and pleasant evenings of about 26 °C (79 °F). Rainfall is minimal during this season, and the sea remains a delightful 27–28 °C (81–82 °F), perfect for enjoying both the city and the beach.</p>
                                     <p class="fs-xl-3 text-secondary">We recommend packing light and breathable clothing for exploring the city during the day, along with a hat, sunglasses, and sunscreen to protect yourself from the Caribbean sun. For events, light and elegant fabrics will be the best choice. Staying hydrated is essential in this warm climate, and for evenings outdoors, it may be comfortable to bring an additional light layer.</p>
                                 </div>
                             </div>
