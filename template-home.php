@@ -161,7 +161,6 @@ get_header();
 
                             <?php
                                 global $TRP_LANGUAGE;
-                                var_dump($TRP_LANGUAGE);
                                 if ($TRP_LANGUAGE === 'en_US') {
                                 echo do_shortcode('[contact-form-7 id="5d0a69c" title="R.S.V.P | EN"]');
                                 } else {
