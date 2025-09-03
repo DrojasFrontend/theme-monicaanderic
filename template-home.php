@@ -7,6 +7,18 @@
 // handle_rsvp_ajax();
 
 get_header();
+
+// Función para generar enlaces de páginas específicas con anclas multiidioma
+function get_multilingual_page_link($page, $anchor) {
+    global $TRP_LANGUAGE;
+    $current_language = $TRP_LANGUAGE ? $TRP_LANGUAGE : 'en_US';
+    
+    if ($current_language === 'es_CO') {
+        return '/es/' . $page . '#' . $anchor;
+    } else {
+        return '/' . $page . '#' . $anchor;
+    }
+}
 ?>
 
 <main class="">
@@ -43,7 +55,9 @@ get_header();
                             <p class="fs-xl-2 mb-xl-4 mb-3">DECEMBER 27th, 2025</p>
                             
                             <h2 class="font-titulo fs-xl-1-md fs-2 text-secondary">Ceremony</h2>
-                            <p class="fs-xl-2">Catedral de Santa Catalina de Alejandría</p>
+                            <p class="fs-xl-2 mb-4">Catedral de Santa Catalina de Alejandría</p>
+                            <a href="https://maps.app.goo.gl/Z2vTEY7E9GAZCJSr7" class="btn btn-primary mx-auto mb-4 text-uppercase" target="_blank">LOCATION</a>
+                            
                             <p class="fs-xl-2 mb-xl-4 mb-3">3:00 p.m.</p>
         
                             <h2 class="font-titulo fs-xl-1-md fs-2 text-secondary">Reception to follow</h2>
@@ -214,35 +228,35 @@ get_header();
                                 <ul class="pt-xl-5 pt-3 px-3">
                                     <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable border-0 border-bottom" style="cursor: pointer;">
                                         <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-travel-info.svg" alt="Home 1"></span>
-                                        <a class="fs-xl-2 text-secondary ls-0" href="/cartagena#travel-info">TRAVEL INFO</a>
+                                        <a class="fs-xl-2 text-secondary ls-0" href="<?php echo get_multilingual_page_link('cartagena', 'travel-info'); ?>">TRAVEL INFO</a>
                                     </li>
                                     <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable border-0 border-bottom" style="cursor: pointer;">
                                         <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-hotel.svg" alt="Home 1"></span>
-                                        <a class="fs-xl-2 text-secondary ls-0" href="/cartagena#hotels">HOTELS</a>
+                                        <a class="fs-xl-2 text-secondary ls-0" href="<?php echo get_multilingual_page_link('cartagena', 'hotels'); ?>">HOTELS</a>
                                     </li>
                                     <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable border-0 border-bottom" style="cursor: pointer;">
                                         <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-restaurants.svg" alt="Home 1"></span>
-                                        <a class="fs-xl-2 text-secondary ls-0" href="/cartagena#restaurants">RESTAURANTS</a>
+                                        <a class="fs-xl-2 text-secondary ls-0" href="<?php echo get_multilingual_page_link('cartagena', 'restaurants'); ?>">RESTAURANTS</a>
                                     </li>
                                     <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable border-0 border-bottom" style="cursor: pointer;">
                                         <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-brunch.svg" alt="Home 1"></span>
-                                        <a class="fs-xl-2 text-secondary ls-0" href="/cartagena#brunch">BRUNCH &amp; DESSERTS</a>
+                                        <a class="fs-xl-2 text-secondary ls-0" href="<?php echo get_multilingual_page_link('cartagena', 'brunch'); ?>">BRUNCH &amp; DESSERTS</a>
                                     </li>
                                     <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable border-0 border-bottom" style="cursor: pointer;">
                                         <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-bars.svg" alt="Home 1"></span>
-                                        <a class="fs-xl-2 text-secondary ls-0" href="/cartagena#bars">BARS &amp; PUBS</a>
+                                        <a class="fs-xl-2 text-secondary ls-0" href="<?php echo get_multilingual_page_link('cartagena', 'bars'); ?>">BARS &amp; PUBS</a>
                                     </li>
                                     <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable border-0 border-bottom" style="cursor: pointer;">
                                         <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-beauty-salons.svg" alt="Home 1"></span>
-                                        <a class="fs-xl-2 text-secondary ls-0" href="/cartagena#beauty">BEAUTY SALONS</a>
+                                        <a class="fs-xl-2 text-secondary ls-0" href="<?php echo get_multilingual_page_link('cartagena', 'beauty'); ?>">BEAUTY SALONS</a>
                                     </li>
                                     <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable border-0" style="cursor: pointer;">
                                         <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-boutiques.svg" alt="Home 1"></span>
-                                        <a class="fs-xl-2 text-secondary ls-0" href="/cartagena#boutiques">BOUTIQUES</a>
+                                        <a class="fs-xl-2 text-secondary ls-0" href="<?php echo get_multilingual_page_link('cartagena', 'boutiques'); ?>">BOUTIQUES</a>
                                     </li>
                                     <!-- <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable border-0" style="cursor: pointer;">
                                         <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-thinks.svg" alt="Home 1"></span>
-                                        <a class="fs-xl-2 text-secondary ls-0 uppercase" href="/cartagena#thinks">things to do in the city</a>
+                                        <a class="fs-xl-2 text-secondary ls-0 uppercase" href="<?php echo get_multilingual_page_link('cartagena', 'thinks'); ?>">things to do in the city</a>
                                     </li> -->
                                 </ul>
                             </div>

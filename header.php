@@ -4,6 +4,18 @@ if (!session_id()) {
     session_start();
 }
 
+// Función para generar enlaces con el idioma correcto
+function get_multilingual_link($anchor) {
+    global $TRP_LANGUAGE;
+    $current_language = $TRP_LANGUAGE ? $TRP_LANGUAGE : 'en_US';
+    
+    if ($current_language === 'es_CO') {
+        return '/es/#' . $anchor;
+    } else {
+        return '/#' . $anchor;
+    }
+}
+
 // Verificar si el usuario ya está autenticado
 global $usuario_autenticado, $error_password;
 $usuario_autenticado = isset($_SESSION['usuario_autenticado']) && $_SESSION['usuario_autenticado'] === true;
@@ -113,7 +125,7 @@ if (isset($_POST['password_access'])) {
 
   <!-- Header -->
   <header class="position-fixed top-0 left-0 w-100 mt-3 bg-white-50">
-    <div class="">
+    <div class=""></div>
       <div class="container-fluid gx-0 py-xl-0 pt-2 pb-1 px-2">
         <div class="row gx-0 justify-content-between">
           <div class="col-8 d-flex align-items-center d-xl-none ">
@@ -125,12 +137,12 @@ if (isset($_POST['password_access'])) {
           </div>
           <div class="col-12 d-none d-xl-block">
             <ul class="customHeader d-none d-xl-grid gap-5 py-xl-2 py-1 px-2">
-              <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 text-primary letter-spacing-xl-4" href="/#wedding">WEDDING</a></li>
-              <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 text-primary letter-spacing-xl-4" href="/#events">EVENTS</a></li>
+              <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 text-primary letter-spacing-xl-4" href="<?php echo get_multilingual_link('wedding'); ?>">WEDDING</a></li>
+              <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 text-primary letter-spacing-xl-4" href="<?php echo get_multilingual_link('events'); ?>">EVENTS</a></li>
               <li class="d-flex justify-content-center align-items-center"><a class="font-titulo fs-xl-1-md fs-3 text-secondary" href="/">Monica & Eric</a></li>
-              <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 text-primary letter-spacing-xl-4" href="/#cartagena">CARTAGENA</a></li>
+              <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 text-primary letter-spacing-xl-4" href="<?php echo get_multilingual_link('cartagena'); ?>">CARTAGENA</a></li>
               <li class="d-flex justify-content-center align-items-center">
-                <a class="fs-xl-5 text-primary letter-spacing-xl-4" href="/#rsvp">R.S.V.P.</a>
+                <a class="fs-xl-5 text-primary letter-spacing-xl-4" href="<?php echo get_multilingual_link('rsvp'); ?>">R.S.V.P.</a>
                 <?php get_template_part('template-parts/components/icons/componente-traslate'); ?>
               </li>
             </ul>
@@ -155,12 +167,12 @@ if (isset($_POST['password_access'])) {
           <?php get_template_part('template-parts/components/icons/icon-close'); ?>
         </button>
         <ul class="customHeader d-flex flex-column justify-content-center align-items-center gap-5 py-xl-2 py-1">
-          <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 text-primary letter-spacing-xl-4" href="/#wedding">WEDDING</a></li>
-          <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 text-primary letter-spacing-xl-4" href="/#events">EVENTS</a></li>
+          <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 text-primary letter-spacing-xl-4" href="<?php echo get_multilingual_link('wedding'); ?>">WEDDING</a></li>
+          <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 text-primary letter-spacing-xl-4" href="<?php echo get_multilingual_link('events'); ?>">EVENTS</a></li>
           <li class="d-flex justify-content-center align-items-center"><a class="font-titulo fs-2 text-primary" href="/">Monica & Eric</a></li>
-          <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 text-primary letter-spacing-xl-4" href="/#cartagena">CARTAGENA</a></li>
+          <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 text-primary letter-spacing-xl-4" href="<?php echo get_multilingual_link('cartagena'); ?>">CARTAGENA</a></li>
           <li class="d-flex justify-content-center align-items-center">
-            <a class="fs-xl-5 text-primary letter-spacing-xl-4" href="/#rsvp">R.S.V.P.</a>
+            <a class="fs-xl-5 text-primary letter-spacing-xl-4" href="<?php echo get_multilingual_link('rsvp'); ?>">R.S.V.P.</a>
           </li>
         </ul>
       </div>
@@ -265,8 +277,3 @@ if (isset($_POST['password_access'])) {
       isEnglish: <?php echo ($current_language === 'en_US') ? 'true' : 'false'; ?>
     };
   </script>
-
-  <!-- monicaandericwedding.com
-https://mail.hostinger.com/
-User: rsvp@monicaandericwedding.com
-Pass: eoq}80xrhsT3 -->
