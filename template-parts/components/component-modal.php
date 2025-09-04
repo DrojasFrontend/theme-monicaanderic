@@ -81,6 +81,28 @@
     </div>
 </div>
 
+<div class="modal fade customSectionBox" id="giftsExamples" tabindex="-1" role="dialog" aria-labelledby="giftsExamples" aria-hidden="true">
+    <div class="">
+        <div class="position-absolute top-0 start-0 w-100 h-100"></div>
+        <div class="py-5"></div>
+        <div class="modal-dialog pt-5 h-100 d-flex align-items-center pt-5" role="document">
+            <div class="modal-content rounded-0 bg-transparent">
+                <div class="col-12 col-xl-10 mx-auto">
+                    <button type="button" class="btn-close p-0 text-secondary fs-xl-2 fs-2 bg-transparent border-0 position-absolute top-0 end-0 me-5 z-2" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-body text-center position-relative overflow-hidden pb-5">
+                        <div class="position-relative">
+                           <img class="w-100 mb-4" src="<?php echo THEME_IMG; ?>English Grafica-Regalos-Monica-y-Eric.webp" alt="Gifts Modal">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-5"></div>
+    </div>
+</div>
+
 <script>
 // Función para abrir un modal hijo desde un modal padre
 // function openChildModal(childModalId, parentModalId) {

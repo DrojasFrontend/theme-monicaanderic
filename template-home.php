@@ -74,7 +74,7 @@ function get_multilingual_page_link($page, $anchor) {
                                 <div class="col-12 col-xl-6">
                                     <p class="fs-xl-4 mb-2 text-uppercase">GIFTS:</p>
                                     <p class="fs-xl-4 text-uppercase mb-xl-4 mb-3">wishing well</p>
-                                    <a href="#" class="btn btn-primary mx-auto text-uppercase" target="_blank">click here</a>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#giftsExamples" class="btn btn-primary mx-auto text-uppercase bg-transparent" target="_blank">click here</button>
                                 </div>
                             </div>
                         </div>
