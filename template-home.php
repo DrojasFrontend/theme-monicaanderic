@@ -214,7 +214,7 @@ function get_multilingual_page_link($page, $anchor) {
                         <div class="py-xl-5 py-3"></div>
                         <div class="text-center">
                             <h2 class="font-titulo fs-xl-1 fs-1 text-secondary">Cartagena</h2>
-                            <p class="fs-xl-5 mb-4 text-gray">TRAVEL TO COlOMBIA</p>
+                            <p class="fs-xl-5 mb-4 text-gray">TRAVEL TO COLOMBIA</p>
                             <div class="customSectionCartagena__text mx-auto mb-5 px-xl-0 px-4">
                                 <p class="fs-xl-3 fs-p-md text-secondary mb-4">
                                     We are delighted to celebrate our wedding in Colombia’s coastal jewel, Cartagena. Recognized as a UNESCO World Heritage Site, this city stands as one of South America’s most treasured cultural landmarks. Within its historic heart, known as the Walled City, you will find charming plazas, cobblestone streets, and magnificent colonial buildings painted in vibrant colors.

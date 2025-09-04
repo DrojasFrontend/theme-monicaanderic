@@ -1,3 +1,44 @@
+<?php
+// Iniciar sesión al principio, antes de cualquier HTML
+if (!session_id()) {
+    session_start();
+}
+
+// Función para generar enlaces con el idioma correcto
+function get_multilingual_link($anchor) {
+    global $TRP_LANGUAGE;
+    $current_language = $TRP_LANGUAGE ? $TRP_LANGUAGE : 'en_US';
+    
+    if ($current_language === 'es_CO') {
+        return '/es/#' . $anchor;
+    } else {
+        return '/#' . $anchor;
+    }
+}
+
+// Verificar si el usuario ya está autenticado
+global $usuario_autenticado, $error_password;
+$usuario_autenticado = isset($_SESSION['usuario_autenticado']) && $_SESSION['usuario_autenticado'] === true;
+$error_password = false;
+
+// Procesar formulario de contraseña
+if (isset($_POST['password_access'])) {
+    $password_correcta = 'Cartagena2026'; // Cambia esta contraseña
+    
+    if ($_POST['password_access'] === $password_correcta) {
+        $_SESSION['usuario_autenticado'] = true;
+        $usuario_autenticado = true;
+        // Limpiar cualquier error previo
+        unset($_SESSION['error_password']);
+    } else {
+        $error_password = 'Contraseña incorrecta';
+        $_SESSION['error_password'] = $error_password;
+    }
+} else {
+    // Verificar si hay error previo en sesión
+    $error_password = isset($_SESSION['error_password']) ? $_SESSION['error_password'] : false;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,3 +139,98 @@
   <!-- Whatsapp -->
   <?php mostrar_boton_whatsapp(); ?>
   <!-- Fin Whatsapp -->
+
+   <!-- Script para mostrar modal de contraseña automáticamente -->
+   <?php if (!$usuario_autenticado): ?>
+  <script>
+    console.log('Usuario NO autenticado - debe mostrar modal');
+    
+    // Bloquear scroll del body cuando no está autenticado
+    document.body.style.overflow = 'hidden';
+    
+    // Función para mostrar el modal
+    function mostrarModalPassword() {
+      console.log('Intentando mostrar modal de contraseña...');
+      const modalElement = document.getElementById('modalPassword');
+      
+      if (modalElement) {
+        console.log('Modal element encontrado');
+        // Verificar si Bootstrap está disponible
+        if (typeof bootstrap !== 'undefined') {
+          console.log('Bootstrap disponible, usando bootstrap.Modal');
+          const modalPassword = new bootstrap.Modal(modalElement);
+          modalPassword.show();
+        } else {
+          console.log('Bootstrap no disponible, intentando jQuery...');
+          // Fallback usando jQuery si Bootstrap no está disponible
+          if (typeof $ !== 'undefined') {
+            console.log('jQuery disponible, usando jQuery modal');
+            $('#modalPassword').modal('show');
+          } else {
+            console.log('Ni Bootstrap ni jQuery disponibles, usando CSS directo');
+            // Último recurso: mostrar usando clases CSS
+            modalElement.classList.add('show');
+            modalElement.style.display = 'block';
+            modalElement.style.zIndex = '9999';
+            document.body.classList.add('modal-open');
+            // Agregar backdrop manualmente con z-index correcto
+            const backdrop = document.createElement('div');
+            backdrop.className = 'modal-backdrop fade show';
+            backdrop.style.zIndex = '9998';
+            backdrop.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+            document.body.appendChild(backdrop);
+          }
+        }
+      }
+    }
+
+    // Función para manejar el envío del formulario
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('formPassword');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          // Mostrar spinner
+          const btnAcceder = document.getElementById('btnAcceder');
+          const btnText = btnAcceder.querySelector('.btn-text');
+          const spinner = btnAcceder.querySelector('.spinner-border');
+          
+          btnText.textContent = 'Loading...';
+          spinner.classList.remove('d-none');
+          btnAcceder.disabled = true;
+        });
+      }
+    });
+
+    // Intentar mostrar el modal cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', mostrarModalPassword);
+    } else {
+      // Si el DOM ya está listo, mostrar inmediatamente
+      mostrarModalPassword();
+    }
+
+    // También intentar después de que la ventana se haya cargado completamente
+    window.addEventListener('load', function() {
+      setTimeout(mostrarModalPassword, 100);
+    });
+  </script>
+  <?php else: ?>
+  <script>
+    // Usuario autenticado - restaurar scroll del body
+    document.body.style.overflow = 'auto';
+  </script>
+  <?php endif; ?>
+
+  <!-- TranslatePress Language Detection for RSVP -->
+  <script>
+    // Detectar idioma actual de TranslatePress
+    <?php 
+    global $TRP_LANGUAGE;
+    $current_language = $TRP_LANGUAGE ? $TRP_LANGUAGE : 'en_US'; // fallback a inglés
+    ?>
+    window.rsvpLanguageData = {
+      currentLanguage: '<?php echo $current_language; ?>',
+      isSpanish: <?php echo ($current_language === 'es_CO') ? 'true' : 'false'; ?>,
+      isEnglish: <?php echo ($current_language === 'en_US') ? 'true' : 'false'; ?>
+    };
+  </script>
